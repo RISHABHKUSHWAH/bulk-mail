@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Mail</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+
+<body>
+    <nav>
+        <a href="http://127.0.0.1:8000/">Send Mail</a>
+        <a href="http://127.0.0.1:8000/sendHtml/">Marketing Mail</a>
+    </nav
+    <div id="mail-form">
+        <h1>Send Marketing Mail</h1>
+        <form action="http://127.0.0.1:8000/sendHtml/" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            <label for="mailTo">Mail To:</label>
+            <input type="text" id="mailTo" name="mailTo" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send Mail</button>
+        </form>
+    </div>
+    {% if mail_sent %}
+    <div class="alert" id="alertBox">Email sent successfully!</div>
+    {% endif %}
+    <script src="{% static "js/alert.js" %}"></script>
+</body>
+
+</html>
