@@ -6,8 +6,8 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-sender_email = 'testpay6397@gmail.com'
-sender_password = 'kudiytqcbssgcugz'
+sender_email = 'test@gmail.com'
+sender_password = 'xyz12345'
 
 def send_email(receiver_email, subject,message,attachPath=None):
     SMTP_SERVER = 'smtp.gmail.com'
